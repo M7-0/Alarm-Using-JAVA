@@ -10,6 +10,7 @@ public class main {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalTime alarmTime = null;
+        String path = "C:\\Users\\mohdk\\IdeaProjects\\NormalJava\\Alarm\\mus.wav";
 
         while (alarmTime == null) {
             try {
@@ -24,6 +25,11 @@ public class main {
             }
         }
 
-        kb.close();
+        AlarmClock alarmClock = new AlarmClock(alarmTime,path , kb);
+        Thread alarmThread = new Thread(alarmClock);
+        alarmThread.start();
+
+
+
     }
 }
